@@ -21,11 +21,18 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+- Setup rke2 cluster with high availability
+```
+ansible-playbook site.yml -i inventory/rke2/hosts.ini --diff
+```
+- To get access to Kubernetes cluster
+```
+/var/lib/rancher/rke2/bin/kubectl --kubeconfig /etc/rancher/rke2/rke2.yaml get nodes
+```
+- To uninstall a node
+```
+/usr/local/bin/rke2-uninstall.sh
+```
 
 License
 -------
